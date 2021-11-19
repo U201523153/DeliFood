@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.restaurant.delifood.data.Api
-import com.restaurant.delifood.model.Usuario
+import com.restaurant.delifood.model.Persona
 import kotlinx.coroutines.*
 
 class RegistroViewModel : ViewModel() {
@@ -15,20 +15,20 @@ class RegistroViewModel : ViewModel() {
     private var _error : MutableLiveData<String> = MutableLiveData()
     val error : LiveData<String> = _error
 
-    fun registrarUsuario(correo: String, clave: String) {
+    fun registrarUsuario(correo: String, clave: String, persona:Persona) {
         viewModelScope.launch {
 
-            _loader.value = true
+            //_loader.value = true
 
             try{
                 val response = withContext(Dispatchers.IO){
                     Api.registrar(correo,clave)
+                    Api.registrarPersona(persona)
                 }
-
             }catch (ex:Exception){
-                _error.value = ex.message
+                //_error.value = ex.message
             }finally {
-                _loader.value = false
+                //_loader.value = false
             }
         }
     }

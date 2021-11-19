@@ -16,10 +16,19 @@
         <entry key="..\:/AcademiaMoviles/Kotlin/Materiales/Proyecto/app/src/main/res/layout/header_navigation.xml" value="0.20260416666666667" />
         <entry key="..\:/AcademiaMoviles/Kotlin/Materiales/Proyecto/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2682291666666667" />
         <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/activity_menu_principal.xml" value="0.2375" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/dialog_ordenar.xml" value="0.2375" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/fragment_cheff.xml" value="0.2375" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/fragment_detalle_plato.xml" value="0.2375" />
         <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/fragment_menu.xml" value="0.159375" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/fragment_platos.xml" value="0.2375" />
         <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/fragment_registro.xml" value="0.16203703703703703" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/fragment_splash.xml" value="0.2375" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/header.xml" value="0.2375" />
         <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/header_navigation.xml" value="0.1" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/item_categories.xml" value="0.2375" />
+        <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/layout/item_plato.xml" value="0.2375" />
         <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
         <entry key="..\:/UPC_Moviles/ProyectoDeliFood/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.261025641025641" />
         <entry key="app/src/main/res/drawable/icon_arrow_next.xml" value="0.41333333333333333" />

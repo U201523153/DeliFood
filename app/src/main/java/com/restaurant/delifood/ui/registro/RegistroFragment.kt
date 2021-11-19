@@ -11,6 +11,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.kaopiz.kprogresshud.KProgressHUD
 import com.restaurant.delifood.R
 import com.restaurant.delifood.databinding.FragmentRegistroBinding
+import com.restaurant.delifood.model.Persona
+import java.util.*
 
 class RegistroFragment : Fragment(R.layout.fragment_registro) {
 
@@ -76,7 +78,10 @@ class RegistroFragment : Fragment(R.layout.fragment_registro) {
                         // Respond to negative button press
                     }
                     .setPositiveButton("Aceptar") { dialog, which ->
-                        viewModel.registrarUsuario(correo, clave)
+
+                        var pe = Persona(UUID.randomUUID().toString(),nombres,apepat,apemat,correo)
+
+                        viewModel.registrarUsuario(correo, clave, pe)
                         Navigation.findNavController(root).navigate(R.id.action_registroFragment_to_loginFragment)
                     }
                     .show()

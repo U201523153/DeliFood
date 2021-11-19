@@ -7,6 +7,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.restaurant.delifood.core.OperationResult
 import com.restaurant.delifood.model.Categories
 import com.restaurant.delifood.model.Persona
 import com.restaurant.delifood.model.Plato
@@ -56,21 +57,19 @@ object Api {
 
     fun registrar(email:String,clave:String): Boolean {
         auth = FirebaseAuth.getInstance()
-        var ok = false
-
+        var estado = false
         auth.createUserWithEmailAndPassword(email, clave)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful){
-                    Log.d("LOGIN","signInWithEmailAndPassword:success")
                     val user = auth.currentUser
-                    Log.d("USUARIO", user.toString())
-                    ok = true
+                    //OperationResult.Complete(true)
+                    estado = true
                 } else {
                     Log.w("LOGIN","signInWithEmailAndPassword:failure", task.exception)
+                    //OperationResult.Error("Error")
                 }
             }
-
-        return ok
+        return estado
     }
 
     fun reestablecer(email: String): Boolean{
@@ -87,13 +86,10 @@ object Api {
         return ok
     }
 
-    fun registrarUsuario(p: Persona): Boolean{
-        //persona._id = UUID.randomUUID().toString()
-        //FirebaseApp.initializeApp(this)
+    fun registrarPersona(p: Persona): Boolean{
         fbDatabase = FirebaseDatabase.getInstance()
         dbReference = fbDatabase.getReference()
-        dbReference.child("persona").child(p._id).setValue(p)
-
+        dbReference.child("Persona").child(p._id).setValue(p)
 
         return true
     }
