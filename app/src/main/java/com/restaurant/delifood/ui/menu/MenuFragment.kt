@@ -15,9 +15,7 @@ import com.restaurant.delifood.databinding.FragmentMenuBinding
 class MenuFragment : Fragment(R.layout.fragment_menu) {
 
     private lateinit var binding: FragmentMenuBinding
-
     private val viewModel : MenuViewModel by viewModels()
-
     private lateinit var adaptador: CategoriaAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,11 +45,6 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     }
 
     private fun init() {
-
-        /*val token = requireContext()
-            .getSharedPreferences("PREFERENCES_TOKEN",0)
-            .getString("KEY_TOKEN","") ?: ""*/
-
         viewModel.obtenerCategorias()
     }
 

@@ -98,10 +98,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                                 user?.uid.toString(),user?.email.toString(),"<Secreto>"
                             )
 
-                            instancia?.usuarioDao()?.insert(dto)
+                            //instancia?.usuarioDao()?.insert(dto)
                             Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_menuFragment)
                         } else {
-
+                            Toast.makeText(requireContext(),"Usuario y/o contraseña incorrecto", Toast.LENGTH_SHORT).show()
                             Log.w("LOGIN", "signInWithEmailAndPassword:failure", task.exception)
                         }
                     }

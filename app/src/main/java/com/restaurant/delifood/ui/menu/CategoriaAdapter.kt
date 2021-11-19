@@ -29,7 +29,6 @@ class CategoriaAdapter(var categorias:List<Categories> = listOf(),
     fun actualizarLista(categorias:List<Categories>){
         this.categorias = categorias
         notifyDataSetChanged()
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriaAdapterViewHolder {
