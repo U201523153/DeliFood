@@ -48,9 +48,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
 
     private fun init() {
 
-        val token = requireContext()
+        /*val token = requireContext()
             .getSharedPreferences("PREFERENCES_TOKEN",0)
-            .getString("KEY_TOKEN","") ?: ""
+            .getString("KEY_TOKEN","") ?: ""*/
 
         viewModel.obtenerCategorias()
     }

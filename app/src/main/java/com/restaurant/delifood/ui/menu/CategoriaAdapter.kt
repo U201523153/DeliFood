@@ -12,10 +12,6 @@ class CategoriaAdapter(var categorias:List<Categories> = listOf(),
                        var onClickCategoria:(Categories)->Unit)
     : RecyclerView.Adapter<CategoriaAdapter.CategoriaAdapterViewHolder>() {
 
-
-    //VIEWHOLDER
-    //XML
-    //Data
     inner class CategoriaAdapterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         private val binding : ItemCategoriesBinding = ItemCategoriesBinding.bind(itemView)
@@ -27,9 +23,6 @@ class CategoriaAdapter(var categorias:List<Categories> = listOf(),
             root.setOnClickListener {
                 onClickCategoria(categories)
             }
-
-
-
         }
     }
 

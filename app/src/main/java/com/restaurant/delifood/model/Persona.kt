@@ -3,6 +3,7 @@ package com.restaurant.delifood.model
 import com.google.gson.annotations.SerializedName
 
 data class Persona(
+
     @SerializedName("_id")
     val _id:String,
 

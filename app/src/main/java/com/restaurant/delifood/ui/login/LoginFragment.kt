@@ -12,6 +12,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.restaurant.delifood.R
 import com.restaurant.delifood.databinding.FragmentLoginBinding
 import com.kaopiz.kprogresshud.KProgressHUD
+import com.restaurant.delifood.data.AppDatabase
+import com.restaurant.delifood.data.AppDatabase.Companion.instancia
+import com.restaurant.delifood.model.Plato
+import com.restaurant.delifood.model.PlatoDto
+import com.restaurant.delifood.model.Usuario
+import com.restaurant.delifood.model.UsuarioDto
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
@@ -38,6 +46,17 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         //Boton Acción -> INGRESAR
         btnIngresar.setOnClickListener {
+
+            /*var response = instancia?.usuarioDao()?.obtenerUsuario()
+            response?.let { usuarioDto ->
+
+                usuarioDto.map {
+                    Log.d("VA",it.usuario_id)
+                    Log.d("VA",it.email)
+                }
+            }*/
+            //
+
             var estado = true
 
             //Obtener los datos
@@ -69,18 +88,23 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             if (estado) {
                 //viewModel.autenticar(correo,clave)
                 auth = FirebaseAuth.getInstance()
-                    auth.signInWithEmailAndPassword(correo, clave)
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                Log.d("LOGIN", "signInWithEmailAndPassword:success")
-                                val user = auth.currentUser
+                auth.signInWithEmailAndPassword(correo, clave)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Log.d("LOGIN", "signInWithEmailAndPassword:success")
+                            val user = auth.currentUser
 
-                                Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_menuFragment)
-                            } else {
+                            val dto = UsuarioDto(
+                                user?.uid.toString(),user?.email.toString(),"<Secreto>"
+                            )
 
-                                Log.w("LOGIN", "signInWithEmailAndPassword:failure", task.exception)
-                            }
+                            instancia?.usuarioDao()?.insert(dto)
+                            Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_menuFragment)
+                        } else {
+
+                            Log.w("LOGIN", "signInWithEmailAndPassword:failure", task.exception)
                         }
+                    }
             }
 
         }

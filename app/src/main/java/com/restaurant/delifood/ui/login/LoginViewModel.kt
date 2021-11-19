@@ -1,7 +1,6 @@
 package com.restaurant.delifood.ui.login
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -36,11 +35,13 @@ class LoginViewModel : ViewModel() {
 
             _loader.value = true
             try{
-                val response = withContext(Dispatchers.IO){
-                    repository?.login(correo,clave)
+
+                repository?.login(correo,clave)?.let {
+                    Log.d("autenticar",it.toString())
                 }
 
-                when(response){
+
+                /*when(response){
                     is OperationResult.Complete -> {
                         if (response.data == true) {
                             Log.d("autenticar","OK|Credencial correcta")
@@ -53,7 +54,7 @@ class LoginViewModel : ViewModel() {
                         Log.d("autenticar","Ha ocurrido un error al momento de llamar Firebase")
                         _error.value = "Ha ocurrido un error al momento de llamar Firebase"
                     }
-                }
+                }*/
             }catch (ex:Exception){
                 _error.value = ex.message
             }finally {

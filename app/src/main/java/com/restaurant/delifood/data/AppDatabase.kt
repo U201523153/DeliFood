@@ -5,12 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.restaurant.delifood.model.PlatoDto
+import com.restaurant.delifood.model.Usuario
+import com.restaurant.delifood.model.UsuarioDto
 
-@Database(entities = [PlatoDto::class],version = 1,exportSchema = false)
+@Database(entities = [PlatoDto::class, UsuarioDto::class],version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     //Definir todos los DAOs que tiene mi aplicacion
     abstract fun platoDao() : PlatoDao
+    abstract fun usuarioDao() : UsuarioDao
 
     companion object{
 
@@ -23,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context,
                     AppDatabase::class.java,
                     "BDDeliFood"
-                ).build()
+                ).allowMainThreadQueries().build()
             }
             return instancia as AppDatabase
         }
