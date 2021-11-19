@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">DeliFood</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_subtitle">LOGIN</string>
+    <string name="login_email">Email</string>
+    <string name="password">Clave</string>
+    <string name="login_enter">Ingresar</string>
+    <string name="login_sign_up">Registrarme</string>
+    <string name="menu_subtitle">Menu</string>
+    <string name="registro_subtitle">REGISTRARME</string>
+    <string name="registro_nombres">Nombres</string>
+    <string name="registro_ape_paterno">Ape.Paterno</string>
+    <string name="registro_ape_materno">Ape.Materno</string>
+    <string name="registro_correo">Correo</string>
+    <string name="registro_clave">Clave</string>
+    <string name="registro_registrarme">Registrarme</string>
+    <string name="registro_volver">Volver</string>
+    <string name="platos_titulo">DELIFOOD</string>
+    <string name="platos_menu">Menú</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="detalle_platos_preferidos">Preferidos</string>
+    <string name="detalle_platos_ordenar">Ordenar</string>
+    <string name="dialog_ordenar_titulo">AGREGAR</string>
+    <string name="dialog_ordenar_confirmar">Confirmar</string>
+    <string name="cheff_resturante">Delifood</string>
+    <string name="cheff">Chef Rodrigo</string>
+    <string name="titulo">Mateo Pescados y Mariscos</string>
+    <string name="subTitulo">Av Brigida Silva de Ochoa 370, San Miguel 15087</string>
+    <string name="direccion">Dirección:</string>
+    <string name="platos">Platos</string>
+    <string name="cheff_menu">Cheff</string>
+</resources>

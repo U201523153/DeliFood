@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/platosFragment"
+        android:icon="@drawable/icono_platos"
+        android:title="@string/platos"
+        />
+
+    <item
+        android:id="@+id/cheffFragment"
+        android:icon="@drawable/icono_cheff"
+        android:title="@string/cheff_menu"
+        />
+
+</menu>

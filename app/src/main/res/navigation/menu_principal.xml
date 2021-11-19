@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_principal"
+    app:startDestination="@id/platosFragment">
+
+    <fragment
+        android:id="@+id/platosFragment"
+        android:name="com.restaurant.delifood.ui.platos.PlatosFragment"
+        android:label="fragment_platos"
+        tools:layout="@layout/fragment_platos">
+        <action
+            android:id="@+id/action_platosFragment_to_detallePlatoFragment"
+            app:destination="@id/detallePlatoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cheffFragment"
+        android:name="com.restaurant.delifood.ui.cheff.CheffFragment"
+        android:label="fragment_cheff" />
+    <fragment
+        android:id="@+id/detallePlatoFragment"
+        android:name="com.restaurant.delifood.ui.detalle.DetallePlatoFragment"
+        android:label="fragment_detalle_plato"
+        tools:layout="@layout/fragment_detalle_plato">
+        <argument
+            android:name="plato"
+            app:argType="com.restaurant.delifood.model.Plato" />
+    </fragment>
+</navigation>
