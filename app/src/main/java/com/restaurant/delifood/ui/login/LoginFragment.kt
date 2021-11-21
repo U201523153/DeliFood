@@ -34,7 +34,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding = FragmentLoginBinding.bind(view)
 
         eventos()
-        configurarObservables()
     }
 
     private fun eventos() = with(binding){
@@ -44,44 +43,30 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             viewModel.reestablecerContrasena(correo)
         }
 
+        //Boton Acción -> REGISTRARME
+        btnRegistrarme.setOnClickListener {
+            Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_registroFragment)
+        }
+
         //Boton Acción -> INGRESAR
         btnIngresar.setOnClickListener {
-
-            /*var response = instancia?.usuarioDao()?.obtenerUsuario()
-            response?.let { usuarioDto ->
-
-                usuarioDto.map {
-                    Log.d("VA",it.usuario_id)
-                    Log.d("VA",it.email)
-                }
-            }*/
-            //
-
             var estado = true
 
             //Obtener los datos
             val correo = edtEmail.editText?.text.toString().trim()
             val clave = edtPassword.editText?.text.toString()
 
-            //Validar los datos
-            when {
-                correo.isEmpty() -> {
-                    edtEmail.error = "Ingrese el email"
-                    estado = false
-                }
-                else -> {
-                    edtEmail.error = ""
-                }
-            }
+            edtEmail.error = ""
+            edtPassword.error = ""
 
-            when {
-                clave.isEmpty() -> {
-                    edtPassword.error = "Ingrese la contraseña"
-                    estado = false
-                }
-                else -> {
-                    edtPassword.error = ""
-                }
+            //Validar los datos
+            if (correo.isEmpty()) {
+                edtEmail.error = "Ingrese el email"
+                estado = false
+            }
+            if (clave.isEmpty()) {
+                edtPassword.error = "Ingrese la contraseña"
+                estado = false
             }
 
             //Ejecutar acción
@@ -91,58 +76,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 auth.signInWithEmailAndPassword(correo, clave)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Log.d("LOGIN", "signInWithEmailAndPassword:success")
-                            val user = auth.currentUser
-
-                            val dto = UsuarioDto(
-                                user?.uid.toString(),user?.email.toString(),"<Secreto>"
-                            )
-
-                            //instancia?.usuarioDao()?.insert(dto)
+                            //val user = auth.currentUser
                             Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_menuFragment)
                         } else {
                             Toast.makeText(requireContext(),"Usuario y/o contraseña incorrecto", Toast.LENGTH_SHORT).show()
-                            Log.w("LOGIN", "signInWithEmailAndPassword:failure", task.exception)
                         }
                     }
             }
-
         }
-
-        //Boton Acción -> REGISTRARME
-        btnRegistrarme.setOnClickListener {
-            Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_registroFragment)
-        }
-    }
-
-    private fun configurarObservables() = with(binding) {
-
-        viewModel.loader.observe(viewLifecycleOwner, Observer { condicion ->
-            if(condicion){
-                progress = KProgressHUD.create(requireContext())
-                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                    .setLabel("Por favor, espere...")
-                    .setCancellable(false)
-                    .setAnimationSpeed(2)
-                    .setDimAmount(0.5f)
-                    .show()
-            }else{
-                progress?.dismiss()
-            }
-        })
-
-        viewModel.error.observe(viewLifecycleOwner, Observer { error ->
-            Toast.makeText(requireContext(),error, Toast.LENGTH_SHORT).show()
-        })
-
-        viewModel.usuario.observe(viewLifecycleOwner, Observer { usuario ->
-            usuario?.let{
-                /*requireContext().getSharedPreferences("PREFERENCES_TOKEN",0).edit().apply {
-                    putString("KEY_TOKEN",it.token).apply()
-                }*/
-                Navigation.findNavController(root).navigate(R.id.action_loginFragment_to_menuFragment)
-            }
-        })
     }
 
     override fun onDestroy() {

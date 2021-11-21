@@ -21,5 +21,27 @@ data class Plato(
     val name: String,
 
     @SerializedName("price")
-    val price: Double
-) : Serializable
+    val price: Double,
+
+    @SerializedName("stock")
+    val stock: Int,
+
+    @SerializedName("grasas")
+    val grasas: Double,
+
+    @SerializedName("grasas_df")
+    val grasas_df: Double,
+
+    @SerializedName("calorias")
+    val calorias: Double,
+
+    @SerializedName("calorias_df")
+    val calorias_df: Double,
+
+    @SerializedName("colesterol")
+    val colesterol: Double,
+
+    @SerializedName("colesterol_df")
+    val colesterol_df: Double
+
+    ) : Serializable

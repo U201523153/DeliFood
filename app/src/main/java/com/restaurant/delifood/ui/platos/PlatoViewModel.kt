@@ -98,7 +98,7 @@ class PlatoViewModel : ViewModel() {
 
                     //Convertir de PLATODTO -> PLATO
                     val platos = platosDto.map {
-                        Plato(it._id,it.avatar,it.category_id,it.description,it.name,it.price)
+                        Plato(it._id,it.avatar,it.category_id,it.description,it.name,it.price,0,0.0,0.0,.0,.0,.0,.0)
                     }
                     _platos.value = platos
                 }

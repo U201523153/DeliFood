@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.database.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.restaurant.delifood.data.Api
 import com.restaurant.delifood.model.Categories
 import kotlinx.coroutines.launch
@@ -52,6 +54,14 @@ class MenuViewModel : ViewModel() {
                         _error.value = response.excepcion
                     }
                 }*/
+                val db = Firebase.firestore
+                val docRef = db.collection("categorias").document()
+                docRef.get().addOnSuccessListener { document ->
+                    if (document != null){
+                        Log.d("TAG","${document.data}")
+                    }
+                }
+
                 var cat = ArrayList<Categories>()
                 cat.add(Categories(true,"1","Entradas","Entradas"))
                 cat.add(Categories(true,"2","Segundos","Segundos"))
